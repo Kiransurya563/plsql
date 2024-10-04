@@ -1,0 +1,25 @@
+->It was developed by Oracle
+->PL/SQL, which stands for Procedural Language extensions to the 
+  Structured Query Language (SQL).
+
+3 Blocks:
+Declarations: This section, starting with the keyword DECLARE, is optional and 
+used for defining variables, cursors, subprograms, and other elements required 
+within the block.
+
+Executable Commands: Enclosed between the keywords BEGIN and END, this mandatory
+section contains executable PL/SQL statements. It must include at least one executable 
+line of code, even if it's just a NULL command indicating no action.
+
+Exception Handling: This starts with the keyword EXCEPTION, this optional section deals 
+with handling errors in the program through defined exceptions.
+
+SQL V/S PL/SQL
+SQL (Structured Query Language) is a standard language used for creating, manipulating,
+and retrieving data from relational databases. SQL is mainly used to write queries, as 
+well as create and execute DDL (Data Definition Language) and DML (Data Manipulation Language) statements.
+Whereas, PL/SQL (Procedural Language/SQL) is an extension of SQL. And it adds procedural 
+capabilities to SQL, enabling the creation of more complex and powerful database applications. 
+PL/SQL supports variables, data types, and control structures such as loops and conditionals, 
+which SQL does not. This makes PL/SQL more efficient for writing program blocks, functions, 
+procedures, triggers, and packages.
