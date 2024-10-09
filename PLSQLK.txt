@@ -1,0 +1,172 @@
+->It was developed by Oracle
+->PL/SQL, which stands for Procedural Language extensions to the 
+  Structured Query Language (SQL).
+
+3 Blocks:
+Declarations: This section, starting with the keyword DECLARE, is optional and 
+used for defining variables, cursors, subprograms, and other elements required 
+within the block.
+
+Executable Commands: Enclosed between the keywords BEGIN and END, this mandatory
+section contains executable PL/SQL statements. It must include at least one executable 
+line of code, even if it's just a NULL command indicating no action.
+
+Exception Handling: This starts with the keyword EXCEPTION, this optional section deals 
+with handling errors in the program through defined exceptions.
+
+SQL V/S PL/SQL
+SQL (Structured Query Language) is a standard language used for creating, manipulating,
+and retrieving data from relational databases. SQL is mainly used to write queries, as 
+well as create and execute DDL (Data Definition Language) and DML (Data Manipulation Language) 
+statements.
+Whereas, PL/SQL (Procedural Language/SQL) is an extension of SQL. And it adds procedural 
+capabilities to SQL, enabling the creation of more complex and powerful database applications. 
+PL/SQL supports variables, data types, and control structures such as loops and conditionals, 
+which SQL does not. This makes PL/SQL more efficient for writing program blocks, functions, 
+procedures, triggers, and packages.
+
+procedure:
+
+CREATE [OR REPLACE] PROCEDURE procedure_name 
+[(parameter_name [IN | OUT | IN OUT] type [, ...])] 
+{IS | AS} 
+BEGIN 
+  < procedure_body > 
+END procedure_name;
+
+Where,
+
+->procedure-name specifies the name of the procedure.
+
+->[OR REPLACE] option allows the modification of an existing procedure.
+
+->The optional parameter list contains name, mode and types of the parameters. 
+  IN represents the value that will be passed from outside and OUT represents the 
+  parameter that will be used to return a value outside of the procedure.
+
+->procedure-body contains the executable part.
+
+->The AS keyword is used instead of the IS keyword for creating a standalone procedure.
+
+Methods for Passing Parameters
+Actual parameters can be passed in three ways −
+->Positional notation
+->Named notation
+->Mixed notation
+
+Positional Notation
+------------------
+In positional notation, you can call the procedure as −
+
+findMin(p, q, r);
+In positional notation, the first actual parameter is substituted for the first formal 
+parameter; the second actual parameter is substituted for the second formal parameter, 
+and so on. So, p is substituted for a, q is substituted for b, r is substituted for c.
+
+Named Notation
+-------------
+In named notation, the actual parameter is associated with the formal parameter using 
+the arrow symbol ( => ). The procedure call will be like the following −
+
+findMin(x => p, y => q, z => r );
+
+Mixed Notation
+-------------
+In mixed notation, you can mix both notations in procedure call; however, the positional notation 
+should precede the named notation.
+
+findMin(p, q, r => c);
+
+functions:
+
+CREATE [OR REPLACE] FUNCTION function_name 
+[(parameter_name [IN | OUT | IN OUT] type [, ...])] 
+RETURN return_datatype 
+{IS | AS} 
+BEGIN 
+   < function_body > 
+END [function_name];
+
+where, 
+
+function-name specifies the name of the function.
+
+[OR REPLACE] option allows the modification of an existing function.
+
+The optional parameter list contains name, mode and types of the parameters. IN represents the value that
+will be passed from outside and OUT represents the parameter that will be used to return a value outside 
+of the procedure.
+
+The function must contain a return statement.
+
+The RETURN clause specifies the data type you are going to return from the function.
+
+function-body contains the executable part.
+
+The AS keyword is used instead of the IS keyword for creating a standalone function.	
+
+cursor
+------
+Oracle creates a memory area, known as the context area, for processing an SQL statement, which contains
+all the information needed for processing the statement; for example, the number of rows processed, etc.
+
+->A cursor is a pointer to this context area(memory area),PL/SQL controls the context area through a cursor. 
+->A cursor holds the rows (one or more) returned by a SQL statement.
+->The set of rows the cursor holds is referred to as the "active set".
+->we can name a cursor so that it could be referred to in a program to fetch and 
+     process the rows returned by the SQL statement, one at a time. 
+->There are two types of cursors 
+  1.Implicit cursors
+  2.explicit cursors 
+
+Implicit cursors
+----------------
+->when there is no explicit cursor for the statement, Implicit cursors are automatically created by Oracle 
+  whenever an SQL statement is executed.
+->we cannot control the implicit cursors and the information in it.	
+->Whenever a DML statement (INSERT, UPDATE and DELETE) is issued, an implicit cursor is associated with this 
+  statement.
+->For INSERT operations, the cursor holds the data that needs to be inserted and 
+->For UPDATE and DELETE operations, the cursor identifies the rows that would be affected.
+->In PL/SQL, the most recent implicit cursor is the SQL cursor, which always has attributes 
+     such as %FOUND, %ISOPEN, %NOTFOUND, and %ROWCOUNT. 
+->The SQL cursor has additional attributes, %BULK_ROWCOUNT and %BULK_EXCEPTIONS, designed for use with the FORALL statement.
+
+%FOUND
+Returns TRUE if an INSERT, UPDATE, or DELETE statement affected one or more rows or a SELECT INTO statement returned one or more rows. 
+Otherwise, it returns FALSE.
+
+%NOTFOUND
+The logical opposite of %FOUND. It returns TRUE if an INSERT, UPDATE, or DELETE statement affected no rows, or a SELECT INTO statement 
+returned no rows. Otherwise, it returns FALSE.
+
+%ISOPEN
+Always returns FALSE for implicit cursors, because Oracle closes the SQL cursor automatically after executing its associated
+SQL statement.
+
+%ROWCOUNT
+Returns the number of rows affected by an INSERT, UPDATE, or DELETE statement, or returned by a SELECT INTO statement.
+
+explicit cursors
+----------------
+Explicit cursors are programmer-defined cursors for gaining more control over the context area. 
+An explicit cursor should be defined in the declaration section of the PL/SQL Block. 
+It is created on a SELECT Statement which returns more than one row.
+
+Working with an explicit cursor includes the following steps −
+
+->Declaring the cursor for initializing the memory
+->Opening the cursor for allocating the memory
+->Fetching the cursor for retrieving the data
+->Closing the cursor to release the allocated memory
+
+The syntax for creating an explicit cursor is −
+
+-> Declaring the Cursor (inside declare block)
+   CURSOR cursor_name IS select_statement;
+-> Opening the Cursor (inside begin block)
+   open cursor_name;
+-> Fetching the Cursor (inside begin block)
+   fetch cursor_name into variables;
+-> Closing the Cursor (inside begin block)
+   close cursor_name; 
