@@ -171,11 +171,13 @@ The syntax for creating an explicit cursor is −
 -> Closing the Cursor (inside begin block)
    close cursor_name; 
 
-Trigger is a stored program which will get executed automatically when ever an event(ddl / dml) occurs in db.
-2 types 
-1.ddl tigger 
-2.dml trigger
-
+Triggers:
+---------
+Triggers are stored programs which will get executed automatically whenever an event occurs in db.
+events are
+1. A database manipulation (DML) statement (DELETE, INSERT, or UPDATE)
+2. A database definition (DDL) statement (CREATE, ALTER, or DROP).
+3. A database operation (SERVER ERROR, LOGON, LOGOFF, STARTUP, or SHUTDOWN)
 
 CREATE [OR REPLACE ] TRIGGER trigger_name  
 {BEFORE | AFTER }  
@@ -203,3 +205,5 @@ BEGIN
 update emp
 SET SAL=SAL+50;
 END; 
+
+
