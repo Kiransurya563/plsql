@@ -218,3 +218,9 @@ SELECT STATUS FROM USER_TRIGGERS WHERE TRIGGER_NAME = 'the_trigger_name';
 to fetch ALL triggers and their statuses-
 SELECT TRIGGER_NAME, STATUS FROM USER_TRIGGERS;
 
+select * from all_triggers
+where table_name = 'YOUR_TABLE';
+
+select * from DBA_TRIGGERS;
+
+select * from USER_TRIGGERS;
