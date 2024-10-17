@@ -206,4 +206,11 @@ update emp
 SET SAL=SAL+50;
 END; 
 
+to remove trigger
+drop trigger trigger_name;
+
+to enable/disable trigger
+ALTER TRIGGER trigger_name DISABLE;
+
+
 
