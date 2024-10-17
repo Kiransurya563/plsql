@@ -224,3 +224,13 @@ where table_name = 'YOUR_TABLE';
 select * from DBA_TRIGGERS;
 
 select * from USER_TRIGGERS;
+
+Index
+-----
+Index is used to increase the execution speed of queries..
+syntax----create index [IN]
+ON  [TN](CN1,CN2,CN3.....N);
+
+DROP INDEX [IN];
+NOTE:- IF WE DROP THE INDEX IT WILL GET DELETED PERMANENTLY FROM DB
+WE CANNOT GRANT INDEX...............
