@@ -212,5 +212,9 @@ drop trigger trigger_name;
 to enable/disable trigger
 ALTER TRIGGER trigger_name DISABLE;
 
+to check status of trigger
+SELECT STATUS FROM USER_TRIGGERS WHERE TRIGGER_NAME = 'the_trigger_name';
 
+to fetch ALL triggers and their statuses-
+SELECT TRIGGER_NAME, STATUS FROM USER_TRIGGERS;
 
