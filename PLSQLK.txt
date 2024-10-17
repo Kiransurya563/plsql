@@ -228,9 +228,10 @@ select * from USER_TRIGGERS;
 Index
 -----
 Index is used to increase the execution speed of queries..
-syntax----create index [IN]
-ON  [TN](CN1,CN2,CN3.....N);
+syntax->
+create index index_name
+ON Table_name(Column_name1,Column_name2,....column_nameN);
 
-DROP INDEX [IN];
+DROP INDEX index_name;
 NOTE:- IF WE DROP THE INDEX IT WILL GET DELETED PERMANENTLY FROM DB
-WE CANNOT GRANT INDEX...............
+       WE CANNOT GRANT INDEX.
